@@ -10,7 +10,7 @@ The maltech-website Worker serves both maltech-young.co.uk and www.maltech-young
 
 ## Bookings
 
-The browser uses same-origin GET/POST /api/public/bookings. The website Worker signs requests and forwards them through its service binding. The app validates the signature, date, service, shared capacity and idempotency key, then saves a requested booking and linked customer, vehicle and job card in the app's database. Website and staff bookings share the same calendar capacity. Customers receive a reference and must wait for staff confirmation. Booking emails/SMS are not sent by this integration.
+The browser uses same-origin GET/POST /api/public/bookings. The website Worker signs requests and forwards them through its service binding. The app validates the signature, date, service, shared capacity and idempotency key, then saves a requested booking and linked customer, vehicle and job card in the app's database. Website and staff bookings share the same calendar capacity. Customers receive a reference and must wait for staff confirmation. Automatic request-received emails are sent for website requests, and confirmation emails are sent when staff confirm a booking. SMS is not configured. The existing website Worker runs a signed five-minute email-queue retry job; Resend provider acceptance is distinct from confirmed inbox delivery.
 
 Staff booking API permissions and private file access remain unchanged. App source is in the separate OneDrive Maltech Workshop App project, which includes migration 0010_website_bookings.sql and website-bookings tests. Tests use a fixture mirroring worker.mjs; update the fixture if this bridge changes.
 

@@ -1,6 +1,18 @@
 const origins = new Set(['https://maltech-young.co.uk','https://www.maltech-young.co.uk']);
 const json = (body,status=200) => Response.json(body,{status,headers:{'cache-control':'no-store'}});
 export default {
+ async scheduled(controller,env,ctx){
+  if(!env.WORKSHOP||!env.WEBSITE_BRIDGE_SECRET)return;
+  ctx.waitUntil((async()=>{
+   const target=new URL('https://app.maltech-young.co.uk/api/internal/booking-emails');const timestamp=String(Date.now());
+   const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new Uint8Array()))).map(b=>b.toString(16).padStart(2,'0')).join('');
+   const canonical=['POST',target.pathname,'https://maltech-young.co.uk','',timestamp,'booking-email-scheduler',digest].join('\n');
+   const key=await crypto.subtle.importKey('raw',new TextEncoder().encode(env.WEBSITE_BRIDGE_SECRET),{name:'HMAC',hash:'SHA-256'},false,['sign']);
+   const signature=Array.from(new Uint8Array(await crypto.subtle.sign('HMAC',key,new TextEncoder().encode(canonical)))).map(b=>b.toString(16).padStart(2,'0')).join('');
+   const result=await env.WORKSHOP.fetch(new Request(target,{method:'POST',headers:{origin:'https://maltech-young.co.uk','x-maltech-client-ip':'booking-email-scheduler','x-maltech-timestamp':timestamp,'x-maltech-signature':signature},signal:AbortSignal.timeout(30000)}));
+   if(!result.ok)throw Error('Booking email retry job failed');
+  })());
+ },
  async fetch(request,env){
   const url=new URL(request.url);
   if(url.pathname==='/api/booking-config')return json({enabled:Boolean(env.WORKSHOP),localPreview:false});

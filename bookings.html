@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bookings | Maltech</title>
+<meta name="description" content="Maltech: specialist engine work, electrical and general diagnostics, servicing, brakes, suspension and vehicle inspections.">
+<link rel="stylesheet" href="css/style.css?v=workshop-3">
+<script src="js/main.js?v=booking-live-1" defer>
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+<div class="wrap header">
+<a class="brand" href="index.html" aria-label="Maltech home">
+<span class="brand-icon">M<span> /</span>
+</span>
+<span>
+<b>MALTECH<span class="dot">.</span>
+</b>
+<small>SPECIALIST VEHICLE CARE</small>
+</span>
+</a>
+<button class="menu-toggle" aria-expanded="false" aria-controls="navigation">Menu <span>＋</span>
+</button>
+<nav id="navigation">
+<a  href="index.html">Home</a>
+<a  href="services.html">Services</a>
+<a aria-current="page" href="bookings.html">Bookings</a>
+<a  href="about.html">About</a>
+<a href="contact.html">Contact</a>
+</nav>
+<a class="button small header-cta" href="contact.html">Get in touch <span>↗</span>
+</a>
+</div>
+</header>
+<main id="main">
+<section class="page-intro wrap"><p class="eyebrow">BOOKINGS</p><h1>Arrange a visit<br><em>to Maltech.</em></h1><p class="lead">Request a service, repair, diagnostic appointment or vehicle inspection.</p></section>
+<section class="wrap contact-layout"><aside><h2>What does your<br>vehicle need?</h2><p>Select a service and tell us about your vehicle. For a fault, include any warning lights, noises or recent work.</p><div class="contact-notice"><strong id="booking-connection-title">Online booking is not available yet</strong><p id="booking-connection-detail">Requests cannot be sent from this preview until the local booking system is connected.</p></div></aside>
+<form id="booking-form" aria-describedby="booking-note"><div class="form-pair"><label>Your name<input name="name" autocomplete="name" placeholder="Full name"></label><label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com"></label></div><div class="form-pair"><label>Phone number<input name="phone" type="tel" autocomplete="tel" placeholder="Contact number"></label><label>Vehicle registration<input name="registration" placeholder="e.g. AB12 CDE"></label></div><div class="form-pair"><label>Make and model<input name="vehicle" placeholder="e.g. Ford Focus"></label><label>Current mileage<input name="mileage" type="number" min="0" step="1" placeholder="Mileage shown on the dashboard"></label></div><label>Service required<select name="service"><option value="">Select a service</option><option>Engine work</option><option>Electrical diagnostics</option><option>General diagnostics</option><option>Servicing</option><option>Brakes &amp; suspension</option><option>Pre-sale &amp; pre-purchase inspection</option><option>Post-sale &amp; post-purchase inspection</option><option>General vehicle inspection</option><option>Not sure — I need advice</option></select></label><div class="form-pair"><label>Preferred date<input name="date" type="date"></label><label>Preferred drop-off time<select name="time"><option value="">Select a time</option><option>08:00</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option></select></label></div><p class="form-note">Please request a weekday. Available drop-off times are shown after you choose a date. Maltech will confirm your appointment.</p><label>Anything we should know?<textarea name="message" rows="5" placeholder="Tell us about the work needed or the symptoms you’ve noticed"></textarea></label><div class="booking-honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div><p class="form-note">We use your contact and vehicle details to manage this booking request and contact you about the work.</p><button class="button" type="submit" disabled>Request a booking <span>↗</span></button><p id="booking-note" class="form-note" role="status">Preview only — booking requests cannot be submitted yet.</p><section id="booking-receipt" hidden aria-live="polite" tabindex="-1"><h3>Booking request received</h3><p id="booking-reference"></p><p>Maltech will confirm your appointment. Please don’t drop off your vehicle until your booking has been confirmed.</p><button class="plain-link" type="button" id="another-booking">Request another booking →</button></section></form></section></main>
+<footer>
+<div class="wrap footer-top">
+<a class="brand" href="index.html">
+<b>MALTECH<span class="dot">.</span>
+</b>
+</a>
+<p>Engine repairs, diagnostics<br>and routine vehicle maintenance.</p>
+<div>
+<a href="services.html">Our services ↗</a>
+<a href="bookings.html">Bookings ↗</a>
+<a href="contact.html">Get in touch ↗</a>
+</div>
+</div>
+<div class="wrap footer-bottom">
+<span>© 2026 Maltech</span>
+<span>Engine work · Diagnostics · Vehicle care</span>
+</div>
+</footer>
+<div class="preview-label">LOCAL DESIGN PREVIEW <span>Contact details to be confirmed</span>
+</div>
+</body>
+</html>

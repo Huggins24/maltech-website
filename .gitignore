@@ -1,0 +1,5 @@
+.preview/
+dist/
+.wrangler/
+.dev.vars*
+.env*
